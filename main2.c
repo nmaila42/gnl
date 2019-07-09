@@ -2,6 +2,8 @@
 #include "libft/libft.h"
 #include <fcntl.h>
 
+//two file discriptors
+
 int		main(int argc, char **argv)
 {
 	int		fd;
