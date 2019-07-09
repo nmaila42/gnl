@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <fcntl.h>
 
+//1 file discriptor
+
 int		main(int argc, char **argv)
 {
     int		fd;
