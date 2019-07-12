@@ -5,23 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmaila <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/14 16:57:11 by nmaila            #+#    #+#             */
-/*   Updated: 2019/06/18 09:53:31 by nmaila           ###   ########.fr       */
+/*   Created: 2019/07/12 14:14:04 by nmaila            #+#    #+#             */
+/*   Updated: 2019/07/12 14:14:07 by nmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned int	i;
 
+	i = 0;
 	if (!s || !f)
 		return ;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		f(i, s + i);
-		i++;
-	}
+	while (*s)
+		f(i++, s++);
 }

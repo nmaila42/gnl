@@ -5,20 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmaila <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/14 16:53:10 by nmaila            #+#    #+#             */
-/*   Updated: 2019/06/18 09:53:17 by nmaila           ###   ########.fr       */
+/*   Created: 2019/07/12 14:13:44 by nmaila            #+#    #+#             */
+/*   Updated: 2019/07/12 14:13:46 by nmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_striter(char *s, void (*f)(char *))
+void	ft_striter(char *s, void (*f)(char *))
 {
 	unsigned int	i;
 
+	i = 0;
 	if (!s || !f)
 		return ;
-	i = 0;
 	while (s[i] != '\0')
 	{
 		f(s + i);

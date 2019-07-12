@@ -5,30 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmaila <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/30 11:57:11 by nmaila            #+#    #+#             */
-/*   Updated: 2019/06/04 13:29:39 by nmaila           ###   ########.fr       */
+/*   Created: 2019/07/12 14:17:29 by nmaila            #+#    #+#             */
+/*   Updated: 2019/07/12 14:17:31 by nmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *dst, const char *src, size_t n)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while (dst[i])
-	{
-		i++;
-	}
 	j = 0;
-	while (src[j] && j < n)
+	while (s1[i])
+		i++;
+	while (s2[j] && j < n)
 	{
-		dst[i] = src[j];
+		s1[i] = s2[j];
 		i++;
 		j++;
 	}
-	dst[i] = '\0';
-	return (dst);
+	s1[i] = '\0';
+	return (s1);
 }

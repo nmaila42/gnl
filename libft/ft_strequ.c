@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmaila <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/10 17:27:06 by nmaila            #+#    #+#             */
-/*   Updated: 2019/06/25 15:57:21 by nmaila           ###   ########.fr       */
+/*   Created: 2019/07/12 14:13:18 by nmaila            #+#    #+#             */
+/*   Updated: 2019/07/12 14:13:21 by nmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 int		ft_strequ(char const *s1, char const *s2)
 {
 	if (!s1 || !s2)
-		return (-1);
-	if (ft_strcmp(s1, s2))
 		return (0);
-	else
-		return (1);
+	return (ft_strcmp(s1, s2) ? 0 : 1);
 }

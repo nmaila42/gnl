@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmaila <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/30 16:11:27 by nmaila            #+#    #+#             */
-/*   Updated: 2019/07/06 15:37:39 by nmaila           ###   ########.fr       */
+/*   Created: 2019/07/12 14:32:30 by nmaila            #+#    #+#             */
+/*   Updated: 2019/07/12 15:43:30 by nmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFF_SIZE 1
+# define BUFF_SIZE 9999
+
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmaila <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/14 17:21:48 by nmaila            #+#    #+#             */
-/*   Updated: 2019/06/18 11:18:59 by nmaila           ###   ########.fr       */
+/*   Created: 2019/07/12 14:20:49 by nmaila            #+#    #+#             */
+/*   Updated: 2019/07/12 14:20:51 by nmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,11 @@ char		*ft_strsub(char const *s, unsigned int start, size_t len)
 	unsigned int	i;
 	char			*str;
 
-	if (!s)
-		return (NULL);
 	i = 0;
-	str = (char *)malloc(sizeof(char) * len + 1);
-	if (str == NULL)
+	str = malloc(sizeof(char) * len + 1);
+	if (!s || !str)
 		return (NULL);
-	while (i < len)
+	while (len > i)
 	{
 		str[i] = s[start + i];
 		i++;

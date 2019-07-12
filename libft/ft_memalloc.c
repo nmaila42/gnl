@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmaila <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/04 13:05:03 by nmaila            #+#    #+#             */
-/*   Updated: 2019/06/14 10:31:22 by nmaila           ###   ########.fr       */
+/*   Created: 2019/07/12 14:04:59 by nmaila            #+#    #+#             */
+/*   Updated: 2019/07/12 14:05:05 by nmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		*ft_memalloc(size_t size)
+void	*ft_memalloc(size_t size)
 {
 	void	*m;
 

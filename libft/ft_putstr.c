@@ -5,24 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmaila <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/31 10:21:48 by nmaila            #+#    #+#             */
-/*   Updated: 2019/06/18 10:01:56 by nmaila           ###   ########.fr       */
+/*   Created: 2019/07/12 14:09:51 by nmaila            #+#    #+#             */
+/*   Updated: 2019/07/12 14:09:53 by nmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_putstr(const char *str)
+void	ft_putstr(char const *s)
 {
-	int		i;
+	int i;
 
 	i = 0;
-	if (str)
+	if (!s)
+		return ;
+	while (s[i])
 	{
-		while (str[i])
-		{
-			ft_putchar(str[i]);
-			i++;
-		}
+		ft_putchar(s[i]);
+		i++;
 	}
 }

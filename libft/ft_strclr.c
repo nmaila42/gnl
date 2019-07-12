@@ -5,23 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmaila <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/04 17:10:44 by nmaila            #+#    #+#             */
-/*   Updated: 2019/06/18 09:52:34 by nmaila           ###   ########.fr       */
+/*   Created: 2019/07/12 14:11:33 by nmaila            #+#    #+#             */
+/*   Updated: 2019/07/12 14:11:36 by nmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strclr(char *str)
+void		ft_strclr(char *s)
 {
 	unsigned int	i;
 
-	if (!str)
-		return ;
 	i = 0;
-	while (str[i])
+	if (!s)
+		return ;
+	while (s[i] != '\0')
 	{
-		str[i] = '\0';
+		s[i] = '\0';
 		i++;
 	}
 }

@@ -5,26 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmaila <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/10 14:43:40 by nmaila            #+#    #+#             */
-/*   Updated: 2019/06/18 10:05:01 by nmaila           ###   ########.fr       */
+/*   Created: 2019/07/12 14:09:59 by nmaila            #+#    #+#             */
+/*   Updated: 2019/07/12 14:10:02 by nmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_putstr_fd(const char *s, int fd)
+void	ft_putstr_fd(char const *s, int fd)
 {
-	int		i;
-	char	*str;
-
-	str = (char *)s;
-	i = 0;
-	if (str)
-	{
-		while (str[i])
-		{
-			ft_putchar_fd(str[i], fd);
-			i++;
-		}
-	}
+	if (!s || !fd)
+		return ;
+	write(fd, s, ft_strlen(s));
 }

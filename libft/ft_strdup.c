@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmaila <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/30 15:41:28 by nmaila            #+#    #+#             */
-/*   Updated: 2019/07/06 15:27:23 by nmaila           ###   ########.fr       */
+/*   Created: 2019/07/12 14:12:51 by nmaila            #+#    #+#             */
+/*   Updated: 2019/07/12 14:12:54 by nmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,18 @@
 
 char		*ft_strdup(const char *s1)
 {
-	char	*dst;
+	char		*str;
+	size_t		i;
 
-	dst = (char *)malloc(ft_strlen(s1) + 1);
-	if (dst)
+	i = 0;
+	str = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
+	if (str == NULL)
+		return (NULL);
+	while (s1[i])
 	{
-		return (ft_strcpy(dst, s1));
+		str[i] = s1[i];
+		i++;
 	}
-	return (NULL);
+	str[i] = '\0';
+	return (str);
 }

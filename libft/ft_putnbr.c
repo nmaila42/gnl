@@ -5,27 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmaila <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/18 10:12:57 by nmaila            #+#    #+#             */
-/*   Updated: 2019/06/22 01:19:15 by nmaila           ###   ########.fr       */
+/*   Created: 2019/07/12 14:09:15 by nmaila            #+#    #+#             */
+/*   Updated: 2019/07/12 14:09:18 by nmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_putnbr(int n)
+void	ft_putnbr(int n)
 {
-	if (n == -2147483648)
-		ft_putstr("-2147483648");
-	if (n > -2147483648 && n < 0)
+	long	ln;
+
+	ln = (long)n;
+	if (ln < 0)
 	{
 		ft_putchar('-');
-		n *= -1;
+		ln *= -1;
 	}
-	if (n > -2147483648 && n < 10)
-		ft_putchar(n + 48);
-	else if (n >= 10)
+	if (ln >= 10)
 	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
+		ft_putnbr(ln / 10);
+		ft_putchar((ln % 10) + '0');
 	}
+	else
+		ft_putchar(ln + '0');
 }

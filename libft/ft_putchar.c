@@ -5,15 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmaila <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/31 10:05:47 by nmaila            #+#    #+#             */
-/*   Updated: 2019/05/31 12:37:31 by nmaila           ###   ########.fr       */
+/*   Created: 2019/07/12 14:07:57 by nmaila            #+#    #+#             */
+/*   Updated: 2019/07/12 14:08:00 by nmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_putchar(char c)
+void	ft_putchar(char c)
 {
-	ft_putchar_fd(c, 1);
-	return (0);
+	write(1, &c, 1);
 }

@@ -5,50 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmaila <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/22 03:12:08 by nmaila            #+#    #+#             */
-/*   Updated: 2019/06/25 16:08:56 by nmaila           ###   ########.fr       */
+/*   Created: 2019/07/12 14:04:11 by nmaila            #+#    #+#             */
+/*   Updated: 2019/07/12 14:04:14 by nmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		get_nb_size(unsigned int nb)
+char		*ft_itoa(int n)
 {
-	unsigned int	size;
+	char	*str;
 
-	size = 0;
-	while (nb >= 10)
+	if (!(str = (char *)malloc(sizeof(char) * 2)))
+		return (NULL);
+	if (n == -2147483648)
+		return (ft_strcpy(str, "-2147483648"));
+	if (n < 0)
 	{
-		nb /= 10;
-		size++;
+		str[0] = '-';
+		str[1] = '\0';
+		str = ft_strjoin(str, ft_itoa(-n));
 	}
-	return (size + 1);
-}
-
-char			*ft_itoa(int nbr)
-{
-	char			*str;
-	unsigned int	nb;
-	unsigned int	index;
-	unsigned int	size;
-
-	if (nbr < 0)
-		nb = (unsigned int)(nbr * -1);
-	else
-		nb = (unsigned int)nbr;
-	size = (unsigned int)get_nb_size(nb);
-	index = 0;
-	if (!(str = (char*)malloc(sizeof(char) * (size + 1 + (nbr < 0 ? 1 : 0)))))
-		return (0);
-	if (nbr < 0 && (str[index] = '-'))
-		size++;
-	index = size - 1;
-	while (nb >= 10)
+	else if (n >= 10)
+		str = ft_strjoin(ft_itoa(n / 10), ft_itoa(n % 10));
+	else if (n < 10 && n >= 0)
 	{
-		str[index--] = (char)(nb % 10 + 48);
-		nb /= 10;
+		str[0] = n + '0';
+		str[1] = '\0';
 	}
-	str[index] = (char)(nb % 10 + 48);
-	str[size] = '\0';
 	return (str);
 }

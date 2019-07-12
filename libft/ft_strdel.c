@@ -5,17 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmaila <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/04 16:52:07 by nmaila            #+#    #+#             */
-/*   Updated: 2019/07/06 15:31:53 by nmaila           ###   ########.fr       */
+/*   Created: 2019/07/12 14:12:29 by nmaila            #+#    #+#             */
+/*   Updated: 2019/07/12 14:12:31 by nmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_strdel(char **as)
+void	ft_strdel(char **as)
 {
-	if (as)
-	{
-		return (ft_memdel((void **)as));
-	}
+	ft_memdel((void **)as);
 }

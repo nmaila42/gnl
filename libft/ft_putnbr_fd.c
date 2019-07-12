@@ -5,27 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmaila <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/18 10:33:26 by nmaila            #+#    #+#             */
-/*   Updated: 2019/06/18 11:36:21 by nmaila           ###   ########.fr       */
+/*   Created: 2019/07/12 14:09:32 by nmaila            #+#    #+#             */
+/*   Updated: 2019/07/12 14:09:35 by nmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)
 		ft_putstr_fd("-2147483648", fd);
-	if (n > -2147483648 && n < 0)
+	else if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		n *= -1;
+		ft_putnbr_fd(-n, fd);
 	}
-	if (n > -2147483648 && n < 10)
-		ft_putchar_fd(n + 48, fd);
 	else if (n >= 10)
 	{
 		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
+		ft_putchar_fd(n % 10 + '0', fd);
 	}
+	else
+		ft_putchar_fd(n + '0', fd);
 }

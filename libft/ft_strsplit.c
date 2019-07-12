@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmaila <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/22 01:44:57 by nmaila            #+#    #+#             */
-/*   Updated: 2019/06/27 15:04:51 by nmaila           ###   ########.fr       */
+/*   Created: 2019/07/12 14:20:11 by nmaila            #+#    #+#             */
+/*   Updated: 2019/07/12 14:20:14 by nmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,60 +14,61 @@
 
 static int			ft_cntwrd(char const *s, char c)
 {
-	unsigned int	i;
-	int				cntr;
+	int		i;
+	int		cntr;
 
 	i = 0;
 	cntr = 0;
-	while (s[i])
+	while (*s != '\0')
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != '\0')
+		if (i == 1 && *s == c)
+			i = 0;
+		if (i == 0 && *s != c)
+		{
+			i = 1;
 			cntr++;
-		while (s[i] && (s[i] != c))
-			i++;
+		}
+		s++;
 	}
 	return (cntr);
 }
 
-static char			*ft_strndup(const char *s, size_t n)
+static int			ft_lenw(const char *s, char c)
 {
-	char			*str;
+	int		len;
 
-	str = (char *)malloc(sizeof(char) * n + 1);
-	if (str == NULL)
-		return (NULL);
-	str = ft_strncpy(str, s, n);
-	str[n] = '\0';
-	return (str);
+	len = 0;
+	while (*s != c && *s != '\0')
+	{
+		len++;
+		s++;
+	}
+	return (len);
 }
 
-char				**ft_strsplit(char const *s, char c)
+char				**ft_strsplit(const char *s, char c)
 {
-	int				i;
-	int				j;
-	int				k;
-	char			**split;
+	int		j;
+	int		i;
+	char	**tab;
 
 	i = 0;
-	k = 0;
-	if (!s || (!(split = (char **)malloc(sizeof(char *) *
-						(ft_cntwrd(s, c)) + 1))))
+	if (!s || !c)
 		return (NULL);
-	while (s[i])
+	j = ft_cntwrd((const char *)s, c);
+	tab = (char **)malloc(sizeof(*tab) * (ft_cntwrd((const char *)s, c)) + 1);
+	if (tab == NULL)
+		return (NULL);
+	while (j--)
 	{
-		while (s[i] == c)
-			i++;
-		j = i;
-		while (s[i] && s[i] != c)
-			i++;
-		if (i > j)
-		{
-			split[k] = ft_strndup(s + j, i - j);
-			k++;
-		}
+		while (*s == c && *s != '\0')
+			s++;
+		tab[i] = ft_strsub((const char *)s, 0, ft_lenw((const char *)s, c));
+		if (tab[i] == NULL)
+			return (NULL);
+		s = s + ft_lenw(s, c);
+		i++;
 	}
-	split[k] = NULL;
-	return (split);
+	tab[i] = NULL;
+	return (tab);
 }
